@@ -126,7 +126,7 @@ endif
 
 # Need a special rule to have a bin dir
 $(BUILD_DIR)/%.o: %.c
-	@printf "  CC\t$<\n"
+	@printf "  CC\t\t$<\n"
 	@mkdir -p $(dir $@)
 	$(Q)$(CC) $(TGT_CFLAGS) $(CFLAGS) $(TGT_CPPFLAGS) $(CPPFLAGS) -o $@ -c $<
 
@@ -141,7 +141,7 @@ $(BUILD_DIR)/%.o: %.S
 	$(Q)$(CC) $(TGT_ASFLAGS) $(ASFLAGS) $(TGT_CPPFLAGS) $(CPPFLAGS) -o $@ -c $<
 
 $(PROJECT).elf: $(OBJS) $(LDSCRIPT) $(LIBDEPS)
-	@printf "  LD\t$@\n"
+	@printf "  LD\t\t$@\n"
 	$(Q)$(LD) $(TGT_LDFLAGS) $(LDFLAGS) $(OBJS) $(LDLIBS) -o $@
 
 %.bin: %.elf
